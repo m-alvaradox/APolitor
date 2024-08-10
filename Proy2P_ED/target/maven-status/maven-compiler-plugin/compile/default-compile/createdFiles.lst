@@ -1,4 +1,7 @@
-com\espol\proy2p_ed\PrimaryController.class
+com\espol\proy2p_ed\JuegosController.class
+com\espol\proy2p_ed\Principal.class
+com\espol\proy2p_ed\NewJuegoController.class
+com\espol\proy2p_ed\Transition.class
+com\espol\proy2p_ed\SecondaryController.class
 module-info.class
 com\espol\proy2p_ed\App.class
-com\espol\proy2p_ed\SecondaryController.class
