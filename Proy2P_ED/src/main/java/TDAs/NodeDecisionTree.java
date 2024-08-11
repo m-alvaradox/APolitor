@@ -3,13 +3,13 @@ package TDAs;
 
 public class NodeDecisionTree<E> {
     private E content;
-    private DecisionTree<E> left;
-    private DecisionTree<E> right;
+    private DecisionTree<E> yes;
+    private DecisionTree<E> no;
     
     public NodeDecisionTree(E content) {
         this.content = content;
-        this.left = null;
-        this.right = null;
+        this.yes = null;
+        this.no = null;
     }
 
     public E getContent() {
@@ -20,24 +20,20 @@ public class NodeDecisionTree<E> {
         this.content = content;
     }
 
-    public DecisionTree<E> getLeft() {
-        return left;
+    public DecisionTree<E> getYes() {
+        return yes;
     }
 
-    public void setLeft(DecisionTree<E> left) {
-        this.left = left;
+    public void setYes(DecisionTree<E> yes) {
+        this.yes = yes;
     }
 
-    public DecisionTree<E> getRight() {
-        return right;
+    public DecisionTree<E> getNo() {
+        return no;
     }
 
-    public void setRight(DecisionTree<E> right) {
-        this.right = right;
+    public void setNo(DecisionTree<E> no) {
+        this.no = no;
     }
-    
-    
-    
-    
     
 }
