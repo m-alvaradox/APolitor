@@ -6,7 +6,7 @@
     
 }
 .fondo{
-    -fx-background-color: linear-gradient(to left,#ffd2d2,#fef7b8);
+    -fx-background-color: #67f8ff;
 }
 
 /* Contenedor con sombra oscura */
@@ -30,22 +30,77 @@
 }
 
 .boton-mean {
-    -fx-background-color: #a2ff84;
+    -fx-background-color: #9cff7c;
     -fx-font-family:"OCR A Extended";
     -fx-text-fill:black;
     -fx-font-weight:bold;
     -fx-font-size:15px;
     -fx-effect: dropshadow(gaussian, black, 2, 2, 0, 0); /* Color y grosor del borde */
 }
-.recuadro{
-    -fx-background-color: #F6F6F6 ;
+
+.boton_new{
+    -fx-background-color: #fab683;
     -fx-border-radius:25px;
-    -fx-border-color:#808385;
+    -fx-background-radius:25px;
+    -fx-font-family:"Arial Black";
+    -fx-text-fill:black;
+    -fx-border-color:black;
+    -fx-font-size:12px;
+    
+}
+
+.recuadro_juego{
+    -fx-background-color: #fef3d4;
+    -fx-border-radius:25px;
+    -fx-border-color:black;
     -fx-background-radius:25px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0.5, 0, 0);
     -fx-alignment:top-center;
+    
 }
 
+.recuadro_allGames{
+    -fx-background-color: transparent;
+}
+
+.texto_juego{
+    -fx-font-family: "Impact";
+    -fx-background-color:#fab7fc;
+    -fx-alignment:top-center;
+    -fx-pref-width:105px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .increment-arrow,
+.scroll-bar:horizontal .decrement-arrow,
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar:horizontal,
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+
+.boton_mean:hover, .recuadro_juego:hover, .boton_sinEstilo:hover{
+    -fx-cursor:hand;
+}
+
+.marco{
+    -fx-border-color:white;
+    -fx-border-width:2px;
+}
 .texto_login{
     -fx-font-size:15px;
     -fx-font-family:"Century";
@@ -83,9 +138,7 @@
     -fx-text-effect: dropshadow(one-pass-box, red, 5, 0.0, 0, 0);  
 }
 
-.boton_fondoAzul:hover, .botones_configuracion:hover, .boton_sinEstilo:hover{
-    -fx-cursor:hand;
-}
+
 
 .mensaje_bienvenido{
     -fx-font-size:20px;
@@ -152,9 +205,9 @@
 .text-atributos{
     -fx-font-family:"Trebuchet MS";
     -fx-effect: dropshadow(three-pass-box, #FFD890, 2   , 1, 1, 1);
-    -fx-text-fill:#1683FF;
+    -fx-text-fill:#1d53fb;
     -fx-font-weight: bold;
-    -fx-font-size:16px;
+    -fx-font-size:18px;
 }
 
 .dialog-paneError{
