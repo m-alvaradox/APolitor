@@ -37,6 +37,18 @@
     -fx-font-size:15px;
     -fx-effect: dropshadow(gaussian, black, 2, 2, 0, 0); /* Color y grosor del borde */
 }
+
+.boton_new{
+    -fx-background-color: #fab683;
+    -fx-border-radius:25px;
+    -fx-background-radius:25px;
+    -fx-font-family:"Arial Black";
+    -fx-text-fill:black;
+    -fx-border-color:black;
+    -fx-font-size:12px;
+    
+}
+
 .recuadro_juego{
     -fx-background-color: #fef3d4;
     -fx-border-radius:25px;
@@ -81,6 +93,10 @@
     -fx-cursor:hand;
 }
 
+.marco{
+    -fx-border-color:white;
+    -fx-border-width:2px;
+}
 .texto_login{
     -fx-font-size:15px;
     -fx-font-family:"Century";
@@ -185,9 +201,9 @@
 .text-atributos{
     -fx-font-family:"Trebuchet MS";
     -fx-effect: dropshadow(three-pass-box, #FFD890, 2   , 1, 1, 1);
-    -fx-text-fill:#1683FF;
+    -fx-text-fill:#1d53fb;
     -fx-font-weight: bold;
-    -fx-font-size:16px;
+    -fx-font-size:18px;
 }
 
 .dialog-paneError{

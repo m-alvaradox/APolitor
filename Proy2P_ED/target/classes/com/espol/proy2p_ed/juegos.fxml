@@ -168,7 +168,7 @@
          <bottom>
             <HBox alignment="CENTER" prefHeight="63.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" styleClass="boton-mean" text="CREAR JUEGO" />
+                  <Button mnemonicParsing="false" onAction="#makeGame" styleClass="boton-mean" text="CREAR JUEGO" />
                </children>
             </HBox>
          </bottom>

@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.NewJuegoController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="640.0" styleClass="fondo">
          <children>
@@ -38,7 +37,7 @@
          <top>
             <HBox alignment="CENTER" prefHeight="76.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="43.0" fitWidth="44.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true" translateX="-150.0">
+                  <ImageView fitHeight="43.0" fitWidth="44.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" translateX="-150.0">
                      <image>
                         <Image url="@../../../imagenes/regresar.png" />
                      </image>
@@ -53,30 +52,56 @@
             </HBox>
          </top>
          <left>
-            <VBox prefHeight="278.0" prefWidth="409.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="278.0" prefWidth="409.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="38.0" prefWidth="399.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="399.0" spacing="10.0">
                      <children>
-                        <Label text="Titulo:" />
-                        <TextField prefHeight="27.0" prefWidth="341.0" />
+                        <Label styleClass="text-atributos" text="Titulo:" />
+                        <TextField fx:id="titleGame" prefHeight="27.0" prefWidth="118.0" promptText="Titulo del Juego" />
                      </children>
                   </HBox>
-                  <Label text="Descripcion:" />
-                  <TextArea prefHeight="54.0" prefWidth="289.0">
+                  <Label styleClass="text-atributos" text="Descripcion:" />
+                  <TextArea fx:id="descripcionGame" prefHeight="67.0" prefWidth="307.0" promptText="Descripcion del Juego">
                      <VBox.margin>
                         <Insets right="80.0" />
                      </VBox.margin>
                   </TextArea>
-                  <HBox prefHeight="33.0" prefWidth="399.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="399.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Subir archivo de preguntas" />
-                        <Label prefHeight="17.0" prefWidth="49.0" text="Label" />
+                        <Button mnemonicParsing="false" styleClass="boton_new" text="Subir preguntas" />
+                        <HBox fx:id="conteinerQuestion" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="131.0" styleClass="caja_imagen" visible="false">
+                           <children>
+                              <Label fx:id="titleQuestion" prefHeight="17.0" prefWidth="88.0" text="title">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/cerrar.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="33.0" prefWidth="399.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="399.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Subir archivo de respuestas" />
-                        <Label prefHeight="17.0" prefWidth="49.0" text="Label" />
+                        <Button mnemonicParsing="false" styleClass="boton_new" text="Subir respuestas" />
+                        <HBox fx:id="conteinerAnswer" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="131.0" styleClass="caja_imagen" visible="false">
+                           <children>
+                              <Label fx:id="titleAnswer" prefHeight="17.0" prefWidth="88.0" text="title">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/cerrar.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -94,15 +119,15 @@
                   <Insets right="10.0" />
                </BorderPane.margin>
                <children>
-                  <Label>
+                  <Label styleClass="marco">
                      <graphic>
-                        <ImageView fitHeight="132.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imagen" fitHeight="132.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Label>
-                  <Button mnemonicParsing="false" text="Subir Imagen" />
+                  <Button mnemonicParsing="false" styleClass="boton_new" text="Subir Imagen" />
                </children>
                <padding>
-                  <Insets top="10.0" />
+                  <Insets top="30.0" />
                </padding>
             </VBox>
          </right>

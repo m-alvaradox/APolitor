@@ -59,4 +59,9 @@ public class JuegosController implements Initializable {
     private void home() throws IOException {
         App.setRoot("principal");
     }
+    
+    @FXML
+    private void makeGame() throws IOException{
+        App.setRoot("newJuego");
+    }
 }
