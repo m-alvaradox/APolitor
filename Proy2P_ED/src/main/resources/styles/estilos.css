@@ -59,6 +59,10 @@
     
 }
 
+.recuadro_allGames{
+    -fx-background-color: transparent;
+}
+
 .texto_juego{
     -fx-font-family: "Impact";
     -fx-background-color:#fab7fc;

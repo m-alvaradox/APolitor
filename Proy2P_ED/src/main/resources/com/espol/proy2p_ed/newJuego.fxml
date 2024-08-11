@@ -28,7 +28,7 @@
       </AnchorPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <bottom>
-            <Button mnemonicParsing="false" styleClass="boton-mean" text="Crear Juego" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#makeGame" styleClass="boton-mean" text="Crear Juego" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
@@ -68,7 +68,7 @@
                   </TextArea>
                   <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="399.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="boton_new" text="Subir preguntas" />
+                        <Button mnemonicParsing="false" onAction="#AddQuestion" styleClass="boton_new" text="Subir preguntas" />
                         <HBox fx:id="conteinerQuestion" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="131.0" styleClass="caja_imagen" visible="false">
                            <children>
                               <Label fx:id="titleQuestion" prefHeight="17.0" prefWidth="88.0" text="title">
@@ -76,7 +76,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="21.0" fitWidth="24.0" onMouseClicked="#CerrarQuestion" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../imagenes/cerrar.png" />
                                  </image>
@@ -87,7 +87,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="399.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="boton_new" text="Subir respuestas" />
+                        <Button mnemonicParsing="false" onAction="#AddAnswer" styleClass="boton_new" text="Subir respuestas" />
                         <HBox fx:id="conteinerAnswer" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="131.0" styleClass="caja_imagen" visible="false">
                            <children>
                               <Label fx:id="titleAnswer" prefHeight="17.0" prefWidth="88.0" text="title">
@@ -95,7 +95,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="21.0" fitWidth="24.0" onMouseClicked="#CerrarAnswer" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../imagenes/cerrar.png" />
                                  </image>
@@ -124,7 +124,7 @@
                         <ImageView fx:id="imagen" fitHeight="132.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Label>
-                  <Button mnemonicParsing="false" styleClass="boton_new" text="Subir Imagen" />
+                  <Button mnemonicParsing="false" onAction="#addImage" styleClass="boton_new" text="Subir Imagen" />
                </children>
                <padding>
                   <Insets top="30.0" />
