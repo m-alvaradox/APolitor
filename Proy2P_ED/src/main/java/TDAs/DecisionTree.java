@@ -44,6 +44,22 @@ public class DecisionTree<E> {
     public void setElements(List<E> elements) {
         this.elements = elements;
     }
-
     
+    public void recorrerArbol() {
+        if(isLeaf()) {
+            System.out.println("ES UN: "+ root.getContent());
+            return;
+        }
+        
+        System.out.println(root.getContent());
+        System.out.println("1: Sí\n2: No");
+        System.out.println();
+        int myanswer = new java.util.Scanner(System.in).nextInt();
+        
+        if(myanswer == 1) {
+            root.getYesBranch().recorrerArbol();
+        } else {
+            root.getNoBranch().recorrerArbol();
+        }
+    }   
 }

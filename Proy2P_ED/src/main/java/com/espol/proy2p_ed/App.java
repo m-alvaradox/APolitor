@@ -75,11 +75,20 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        
+        /* //Juego en la consola
+        try {
+            DecisionTree arbol = buildDecisionTree("src/main/resources/datos/game-0/game-0-questions.txt", "src/main/resources/datos/game-0/game-0-answers.txt");
+            arbol.recorrerArbol();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
         launch();
     }
     
     
-    public static void buildDecisionTree(String questionsFile, String answersFile) throws IOException {
+    public static DecisionTree<String> buildDecisionTree(String questionsFile, String answersFile) throws IOException {
         
         DecisionTree<String> decisionTree = new DecisionTree();
         
@@ -87,7 +96,7 @@ public class App extends Application {
         List<String> answers = readFile(answersFile);
         
         decisionTree.setElements(questions);
-        decisionTree.setRoot(new NodeDecisionTree(questions.get(0)));
+        decisionTree.setRoot(new NodeDecisionTree<String>(questions.get(0)));
         
         for(String answer : answers) {
             String[] sep_answer = answer.split(" ");
@@ -95,9 +104,42 @@ public class App extends Application {
             
             NodeDecisionTree<String> current = decisionTree.getRoot();
             
-            
+            for(int i = 1; i< sep_answer.length; i++) {
+                if(sep_answer[i].toUpperCase().equals("SI") || sep_answer[i].toUpperCase().equals("SÍ") ) {
+                    if(current.getYesBranch() == null) {
+                        if(i == sep_answer.length -1) {
+                            current.setYesBranch(new DecisionTree<String>(new NodeDecisionTree<String>(element)));
+                        } else {
+                            current.setYesBranch(new DecisionTree<String>(new NodeDecisionTree<String>(questions.get(i))));
+                        }
+                    }
+                
+                    current = current.getYesBranch().getRoot();
+                
+                } else {
+                    if (current.getNoBranch() == null) {
+                        if(i == sep_answer.length -1) {
+                            current.setNoBranch(new DecisionTree<String>(new NodeDecisionTree<String>(element)));
+                        } else {
+                            current.setNoBranch(new DecisionTree<String>(new NodeDecisionTree<String>(questions.get(i))));
+                        }
+                    }
+                    
+                    current = current.getNoBranch().getRoot();
+                }
+                    
+            }
+                    
+                
         }
         
+        return decisionTree;
+                    
     }
+            
+            
+        
+        
+    
 
 }
