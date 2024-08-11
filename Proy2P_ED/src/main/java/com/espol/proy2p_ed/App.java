@@ -1,6 +1,10 @@
 package com.espol.proy2p_ed;
 
 import Objects.Juego;
+import TDAs.DecisionTree;
+import TDAs.NodeDecisionTree;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JavaFX App
@@ -57,9 +62,42 @@ public class App extends Application {
         
         return games_list;
     }
+    
+    public static List<String> readFile(String filePath) throws IOException {
+        List<String> lineas = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                lineas.add(linea);
+            }
+        }
+        return lineas;
+    }
 
     public static void main(String[] args) {
         launch();
+    }
+    
+    
+    public static void buildDecisionTree(String questionsFile, String answersFile) throws IOException {
+        
+        DecisionTree<String> decisionTree = new DecisionTree();
+        
+        List<String> questions = readFile(questionsFile);
+        List<String> answers = readFile(answersFile);
+        
+        decisionTree.setElements(questions);
+        decisionTree.setRoot(new NodeDecisionTree(questions.get(0)));
+        
+        for(String answer : answers) {
+            String[] sep_answer = answer.split(" ");
+            String element = sep_answer[0];
+            
+            NodeDecisionTree<String> current = decisionTree.getRoot();
+            
+            
+        }
+        
     }
 
 }
