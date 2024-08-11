@@ -13,6 +13,10 @@ public class DecisionTree<E> {
         this.root = root;
     }
     
+    public boolean isLeaf() {
+        return root.getYesBranch() == null && root.getNoBranch() == null;
+    }
+    
     
     
 }

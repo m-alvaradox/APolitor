@@ -3,13 +3,13 @@ package TDAs;
 
 public class NodeDecisionTree<E> {
     private E content;
-    private DecisionTree<E> yes;
-    private DecisionTree<E> no;
+    private DecisionTree<E> yesBranch;
+    private DecisionTree<E> noBranch;
     
     public NodeDecisionTree(E content) {
         this.content = content;
-        this.yes = null;
-        this.no = null;
+        this.yesBranch = null;
+        this.noBranch = null;
     }
 
     public E getContent() {
@@ -20,20 +20,21 @@ public class NodeDecisionTree<E> {
         this.content = content;
     }
 
-    public DecisionTree<E> getYes() {
-        return yes;
+    public DecisionTree<E> getYesBranch() {
+        return yesBranch;
     }
 
-    public void setYes(DecisionTree<E> yes) {
-        this.yes = yes;
+    public void setYesBranch(DecisionTree<E> yesBranch) {
+        this.yesBranch = yesBranch;
     }
 
-    public DecisionTree<E> getNo() {
-        return no;
+    public DecisionTree<E> getNoBranch() {
+        return noBranch;
     }
 
-    public void setNo(DecisionTree<E> no) {
-        this.no = no;
+    public void setNoBranch(DecisionTree<E> noBranch) {
+        this.noBranch = noBranch;
     }
+    
     
 }
