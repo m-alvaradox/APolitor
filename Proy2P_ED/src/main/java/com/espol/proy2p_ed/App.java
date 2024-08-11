@@ -22,9 +22,8 @@ public class App extends Application {
 
     private static Scene scene;
     public static String filegames = "src\\main\\resources\\datos\\games.ser";
-    public static ArrayList<Juego> juegos = loadGames();;
-
-
+    public static ArrayList<Juego> juegos = loadGames();
+    
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("principal"), 640, 480);
