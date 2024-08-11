@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="fondo" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="fondo" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.PrimaryController">
    <left>
       <VBox alignment="CENTER" prefHeight="395.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="primaryButton" onAction="#switchToSecondary" styleClass="boton-mean" text="JUGAR" />
-            <Button mnemonicParsing="false" styleClass="boton-mean" text="UPLOAD FILES">
+            <Button mnemonicParsing="false" onAction="#creategame" styleClass="boton-mean" text="CREAR JUEGO">
                <font>
                   <Font name="OCR A Extended" size="12.0" />
                </font></Button>

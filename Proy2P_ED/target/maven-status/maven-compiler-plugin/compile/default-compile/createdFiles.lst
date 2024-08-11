@@ -1,4 +1,6 @@
 com\espol\proy2p_ed\PrimaryController.class
+com\espol\proy2p_ed\Container.class
 module-info.class
 com\espol\proy2p_ed\App.class
+Objects\Juego.class
 com\espol\proy2p_ed\SecondaryController.class
