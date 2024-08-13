@@ -1,5 +1,6 @@
 package com.espol.proy2p_ed;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,9 @@ import javafx.util.Duration;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 public class Principal implements Initializable{
     
@@ -36,7 +40,7 @@ public class Principal implements Initializable{
     @FXML
     Circle c6;
     
-    
+    private MediaPlayer backgroundMusicPlayer;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,6 +56,17 @@ public class Principal implements Initializable{
         //
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
+        
+        // Musica de fondo
+        
+        File musicFile = new File("src\\main\\resources\\techmusic.mp3");
+        String musicPath = musicFile.toURI().toString();
+
+        Media musicMedia = new Media(musicPath);
+        backgroundMusicPlayer = new MediaPlayer(musicMedia);
+        backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Reproducir en bucle
+        backgroundMusicPlayer.setVolume(0.5); // Ajustar el volumen según sea necesario
+        backgroundMusicPlayer.play();
     }
     
     @FXML
