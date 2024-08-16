@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.GoJuegoController">
    <children>
@@ -52,32 +53,48 @@
          <center>
             <VBox prefHeight="272.0" prefWidth="485.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="Question" prefHeight="57.0" prefWidth="314.0" styleClass="caja_imagen" text="pregunta" wrapText="true">
-                     <VBox.margin>
-                        <Insets bottom="-10.0" left="100.0" top="10.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </Label>
+                  <StackPane prefHeight="84.0" prefWidth="522.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f1f4" height="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-115.0" translateY="20.0" width="26.0" />
+                        <Label fx:id="Question" prefHeight="58.0" prefWidth="338.0" styleClass="caja_question" text="pregunta" wrapText="true">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="202.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" scaleX="1.8" scaleY="0.9" translateY="10.0">
+                           <image>
+                              <Image url="@../../../imagenes/dialogo.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets bottom="-150.0" top="-150.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                     </children>
+                  </StackPane>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="271.0" prefWidth="386.0">
+                        <VBox prefHeight="201.0" prefWidth="337.0">
                            <children>
-                              <ImageView fx:id="tortuga" fitHeight="252.0" fitWidth="311.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="tortuga" fitHeight="216.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../imagenes/tortuga.png" />
+                                    <Image url="@../../../imagenes/tortuga3.png" />
                                  </image>
                                  <VBox.margin>
-                                    <Insets left="-25.0" />
+                                    <Insets left="-10.0" top="-15.0" />
                                  </VBox.margin>
                               </ImageView>
                            </children>
                         </VBox>
                         <VBox fx:id="conteinerButton" alignment="CENTER_LEFT" prefHeight="213.0" prefWidth="190.0" spacing="20.0">
                            <children>
-                              <Button fx:id="botonSi" mnemonicParsing="false" onAction="#botonSi" styleClass="boton_new" text="Si" />
-                              <Button fx:id="botonNo" mnemonicParsing="false" onAction="#botonNo" styleClass="boton_new" text="No" />
+                              <Button fx:id="botonSi" mnemonicParsing="false" onAction="#botonSi" prefHeight="36.0" prefWidth="133.0" styleClass="boton_opcion" text="Si">
+                                 <VBox.margin>
+                                    <Insets bottom="-5.0" />
+                                 </VBox.margin></Button>
+                              <Button fx:id="botonNo" mnemonicParsing="false" onAction="#botonNo" prefHeight="36.0" prefWidth="133.0" style="-fx-border-width: 1 1 1 1;" styleClass="boton_opcion" text="No">
+                                 <VBox.margin>
+                                    <Insets top="-15.0" />
+                                 </VBox.margin></Button>
                               <Button fx:id="botonCorregir" mnemonicParsing="false" onAction="#questionAnterior" styleClass="boton-mean" text="Corregir" translateX="-40.0" translateY="5.0" visible="false">
                                  <VBox.margin>
                                     <Insets bottom="-30.0" />

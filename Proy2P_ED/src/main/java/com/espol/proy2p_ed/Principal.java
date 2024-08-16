@@ -45,8 +45,8 @@ public class Principal implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Inicializa las imágenes
-        image1 = new Image("/imagenes/tortuga.png");
-        image2 = new Image("/imagenes/tortuga2.png");
+        image1 = new Image("/imagenes/tortuga_preguntando.png");
+        image2 = new Image("/imagenes/tortuga_satisfecha.png");
 
         // Establece la imagen inicial
         vista.setImage(image1);
@@ -87,6 +87,9 @@ public class Principal implements Initializable{
         timeline.play(); // Iniciar la animación
     }
     
-    
+    @FXML
+    private void makeJuego() throws IOException{
+        App.setRoot("newJuego");
+    }
         
 }

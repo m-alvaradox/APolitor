@@ -93,7 +93,7 @@
 }
 
 
-.boton_mean:hover, .recuadro_juego:hover, .boton_sinEstilo:hover{
+.boton_mean:hover, .recuadro_juego:hover, .boton_sinEstilo:hover, .boton_opcion:hover, boton-mean:hover {
     -fx-cursor:hand;
 }
 
@@ -202,6 +202,23 @@
     -fx-font-family:"Arial";
 }
 
+.caja_question{
+    -fx-border-radius:50px;
+    -fx-background-color:#f0f1f4;
+    -fx-background-radius:25px;
+    -fx-font-family:"Arial";
+}
+
+
+.boton_opcion{
+   -fx-background-color: linear-gradient(to right, #FFFF, #c8ff40);
+   -fx-border-width: 1px 1px 0px 1px;
+    -fx-font-family:"Arial Black";
+    -fx-text-fill:black;
+    -fx-border-color:black;
+    -fx-font-size:16px;
+    
+}
 .text-atributos{
     -fx-font-family:"Trebuchet MS";
     -fx-effect: dropshadow(three-pass-box, #FFD890, 2   , 1, 1, 1);

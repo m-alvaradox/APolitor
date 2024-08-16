@@ -1,0 +1,28 @@
+¿Es este animal un mamífero?
+¿Es este animal un ave?
+¿Es este animal un reptil?
+¿Es este animal un anfibio?
+¿Este animal vive en el agua?
+¿Es este animal un insecto?
+¿Es este animal un arácnido?
+¿Este animal come carne?
+¿Este animal come plantas?
+¿Es este animal come animales?
+¿Es este animal un depredador?
+¿Este animal es doméstico?
+¿Este animal vive en la selva?
+¿Este animal vive en el desierto?
+¿Este animal vive en áreas montañosas?
+¿Este animal vive en climas fríos?
+¿Este animal puede volar?
+¿Este animal puede nadar?
+¿Este animal puede trepar árboles?
+¿Este animal es nocturno?
+¿Este animal es diurno?
+¿Este animal es conocido por su velocidad?
+¿Este animal tiene un tamaño grande?
+¿Este animal es venenoso?
+¿Este animal es migratorio?
+¿Este animal tiene un pelaje denso?
+¿Este animal se para sobre dos patas?
+¿Este animal se para sobre cuatro patas?

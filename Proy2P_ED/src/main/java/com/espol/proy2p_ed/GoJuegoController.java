@@ -108,6 +108,7 @@ public class GoJuegoController implements Initializable {
         botonNo.setVisible(false);
         botonSi.setVisible(false);
         botonCorregir.setVisible(false);
+        tortuga.setImage(new Image("/imagenes/tortuga_satisfecha.png"));
         Question.setText("Lo que pensó fue un "+ ArbolJuego.getRoot().getContent());
     }
     

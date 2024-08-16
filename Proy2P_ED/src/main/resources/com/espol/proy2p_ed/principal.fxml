@@ -14,7 +14,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.Principal">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="640.0" styleClass="fondo">
+      <AnchorPane prefWidth="640.0" styleClass="fondo">
          <children>
             <Circle fx:id="c2" fill="#000fff" layoutX="85.0" layoutY="30.0" opacity="0.7" radius="16.0" stroke="BLACK" strokeType="INSIDE" translateX="40.0" />
             <Circle fx:id="c1" fill="#000fff" layoutX="42.0" layoutY="331.0" opacity="0.7" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
@@ -29,12 +29,11 @@
             <VBox alignment="CENTER" prefHeight="395.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="primaryButton" onAction="#switchToSecondary" styleClass="boton-mean" text="JUGAR" />
-                  <Button mnemonicParsing="false" styleClass="boton-mean" text="UPLOAD FILES">
+                  <Button mnemonicParsing="false" onAction="#makeJuego" styleClass="boton-mean" text="UPLOAD FILES">
                      <font>
                         <Font name="OCR A Extended" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="boton-mean" text="AYUDA" />
                   <Button mnemonicParsing="false" styleClass="boton-mean" text="AYUDA" />
                </children>
             </VBox>
@@ -52,7 +51,7 @@
          <center>
             <ImageView fx:id="vista" fitHeight="244.0" fitWidth="346.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../imagenes/tortuga.png" />
+                  <Image url="@../../../imagenes/tortuga_preguntando.png" />
                </image>
             </ImageView>
          </center>
