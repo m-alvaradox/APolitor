@@ -4,6 +4,7 @@ import Objects.Juego;
 import TDAs.DecisionTree;
 import TDAs.NodeDecisionTree;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * JavaFX App
@@ -23,9 +26,22 @@ public class App extends Application {
     private static Scene scene;
     public static String filegames = "src\\main\\resources\\datos\\games.ser";
     public static ArrayList<Juego> juegos = loadGames();
+    private MediaPlayer backgroundMusicPlayer;
     
     @Override
     public void start(Stage stage) throws IOException {
+        
+        // Musica de fondo
+        
+        File musicFile = new File("src\\main\\resources\\techmusic.mp3");
+        String musicPath = musicFile.toURI().toString();
+
+        Media musicMedia = new Media(musicPath);
+        backgroundMusicPlayer = new MediaPlayer(musicMedia);
+        backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Reproducir en bucle
+        backgroundMusicPlayer.setVolume(0.5); // Ajustar el volumen según sea necesario
+        backgroundMusicPlayer.play();
+        
         scene = new Scene(loadFXML("principal"), 640, 400);
         stage.setTitle("APolitor");
         stage.setScene(scene);
