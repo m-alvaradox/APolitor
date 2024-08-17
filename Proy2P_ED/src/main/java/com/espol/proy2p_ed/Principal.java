@@ -36,16 +36,13 @@ public class Principal implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Inicializa las imágenes
         image1 = new Image("/imagenes/tortuga_preguntando.png");
         image2 = new Image("/imagenes/tortuga_satisfecha.png");
-
-        // Establece la imagen inicial
+        
         vista.setImage(image1);
 
-        // Configura la transición de imágenes
         startTransition();
-        //
+
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
 }
@@ -64,8 +61,8 @@ public class Principal implements Initializable{
                 vista.setImage(image1);
             }
         }));
-        timeline.setCycleCount(Timeline.INDEFINITE); // Repetir indefinidamente
-        timeline.play(); // Iniciar la animación
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
     
     @FXML

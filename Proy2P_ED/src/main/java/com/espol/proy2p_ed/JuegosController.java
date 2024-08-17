@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.espol.proy2p_ed;
 
 import Objects.Juego;
@@ -22,11 +18,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
-/**
- * FXML Controller class
- *
- * @author USER
- */
 public class JuegosController implements Initializable {
     
     
@@ -58,12 +49,10 @@ public class JuegosController implements Initializable {
     
     ArrayList<Juego> juegos;
     public static Juego JuegoEnUso;
-    /**
-     * Initializes the controller class.
-     */
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
         t1.rotateLogo(imagenLogo);
@@ -104,7 +93,6 @@ public class JuegosController implements Initializable {
                     if (j.getPortada().contains("defaultgame.jpg")) {
                         image = new Image("/imagenes/defaultgame.jpg");
                     } else {
-                        // Usa la ruta directamente para cargar la imagen en lugar de convertirla en Path.
                         image = new Image(Paths.get(j.getPortada()).toUri().toString());
                     }
                     ImageView imagen = new ImageView(image);
@@ -135,7 +123,6 @@ public class JuegosController implements Initializable {
         if (j.getPortada().contains("defaultgame.jpg")) {
               image = new Image("/imagenes/defaultgame.jpg");
          } else {
-               // Usa la ruta directamente para cargar la imagen en lugar de convertirla en Path.
                image = new Image(Paths.get(j.getPortada()).toUri().toString());
           }
         imagen.setImage(image);

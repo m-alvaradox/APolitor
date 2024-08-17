@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.espol.proy2p_ed;
 
 import Objects.Juego;
@@ -70,12 +66,11 @@ public class GoJuegoController implements Initializable {
     Button botonCorregir;
     @FXML
     Button botonReiniciar;
-    /**
-     * Initializes the controller class.
-     */
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
         t1.rotateLogo(imagenLogo);

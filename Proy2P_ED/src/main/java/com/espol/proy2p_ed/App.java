@@ -19,9 +19,6 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
@@ -31,9 +28,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        
-        // Musica de fondo
-        
+               
         File musicFile = new File("src\\main\\resources\\techmusic.mp3");
         String musicPath = musicFile.toURI().toString();
 

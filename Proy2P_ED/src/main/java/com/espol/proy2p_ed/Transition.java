@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.espol.proy2p_ed;
 
 import javafx.animation.FadeTransition;
@@ -14,10 +10,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-/**
- *
- * @author USER
- */
     public class Transition {
        
         
@@ -39,7 +31,7 @@ import javafx.util.Duration;
             traducirc13.setByY(315);
 
             SequentialTransition sequence = new SequentialTransition(traducirc11, traducirc12, traducirc13);
-            sequence.setCycleCount(SequentialTransition.INDEFINITE); // Repetir indefinidamente
+            sequence.setCycleCount(SequentialTransition.INDEFINITE);
 
             sequence.play();
 
@@ -60,7 +52,7 @@ import javafx.util.Duration;
             traducirc23.setByY(25);
 
             SequentialTransition sequence2 = new SequentialTransition(traducirc21, traducirc22, traducirc23);
-            sequence2.setCycleCount(SequentialTransition.INDEFINITE); // Repetir indefinidamente
+            sequence2.setCycleCount(SequentialTransition.INDEFINITE);
 
             sequence2.play();
 
@@ -102,7 +94,7 @@ import javafx.util.Duration;
             traducirc43.setByY(71);
 
             SequentialTransition sequence4 = new SequentialTransition(traducirc41, traducirc42, traducirc43);
-            sequence4.setCycleCount(SequentialTransition.INDEFINITE); // Repetir indefinidamente
+            sequence4.setCycleCount(SequentialTransition.INDEFINITE);
 
             sequence4.play();
 
@@ -123,7 +115,7 @@ import javafx.util.Duration;
             traducirc53.setByY(235);
 
             SequentialTransition sequence5 = new SequentialTransition(traducirc51, traducirc52, traducirc53);
-            sequence5.setCycleCount(SequentialTransition.INDEFINITE); // Repetir indefinidamente
+            sequence5.setCycleCount(SequentialTransition.INDEFINITE);
 
             sequence5.play();
 
@@ -144,7 +136,7 @@ import javafx.util.Duration;
             traducirc63.setByY(325);
 
             SequentialTransition sequence6 = new SequentialTransition(traducirc61, traducirc62, traducirc63);
-            sequence6.setCycleCount(SequentialTransition.INDEFINITE); // Repetir indefinidamente
+            sequence6.setCycleCount(SequentialTransition.INDEFINITE);
 
             sequence6.play();
            
