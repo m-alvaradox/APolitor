@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -44,6 +45,8 @@ public class App extends Application {
         
         scene = new Scene(loadFXML("principal"), 640, 400);
         stage.setTitle("APolitor");
+        Image icon = new Image("/imagenes/tortuga2.png");
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
     }
