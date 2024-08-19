@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.GoJuegoController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.GoJuegoController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="640.0" styleClass="fondo">
          <children>
@@ -36,10 +37,16 @@
          <top>
             <HBox alignment="CENTER" prefHeight="66.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="43.0" fitWidth="44.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" translateX="-150.0">
+                  <ImageView fx:id="bttnregresar" fitHeight="43.0" fitWidth="44.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" translateX="-150.0">
                      <image>
                         <Image url="@../../../imagenes/regresar.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <Label styleClass="label-mean" text="APOLITOR" />
                   <ImageView fx:id="imagenLogo" fitHeight="49.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
@@ -47,6 +54,26 @@
                         <Image url="@../../../imagenes/tortuga2.png" />
                      </image>
                   </ImageView>
+                  <AnchorPane prefHeight="71.0" prefWidth="90.0">
+                     <children>
+                        <ImageView fx:id="bttnmute" fitHeight="59.0" fitWidth="91.0" layoutX="71.0" layoutY="12.0" onMouseClicked="#audio" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../imagenes/mute.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="bttnunmute" fitHeight="59.0" fitWidth="91.0" layoutX="71.0" layoutY="12.0" onMouseClicked="#audio" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../../imagenes/unmute.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children>
             </HBox>
          </top>
@@ -90,15 +117,24 @@
                               <Button fx:id="botonSi" mnemonicParsing="false" onAction="#botonSi" prefHeight="36.0" prefWidth="133.0" styleClass="boton_opcion" text="Si">
                                  <VBox.margin>
                                     <Insets bottom="-5.0" />
-                                 </VBox.margin></Button>
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Button fx:id="botonNo" mnemonicParsing="false" onAction="#botonNo" prefHeight="36.0" prefWidth="133.0" style="-fx-border-width: 1 1 1 1;" styleClass="boton_opcion" text="No">
                                  <VBox.margin>
                                     <Insets top="-15.0" />
-                                 </VBox.margin></Button>
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Button fx:id="botonCorregir" mnemonicParsing="false" onAction="#questionAnterior" styleClass="boton-mean" text="Corregir" translateX="-40.0" translateY="5.0" visible="false">
                                  <VBox.margin>
                                     <Insets bottom="-30.0" />
                                  </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                            <HBox.margin>
@@ -115,6 +151,9 @@
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </bottom>
       </BorderPane>
@@ -136,8 +175,14 @@
                   <TextField fx:id="numQuestions" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="70.0" />
                   <HBox alignment="CENTER" prefHeight="85.0" prefWidth="313.0" spacing="30.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#EmpezarJuego" styleClass="boton-mean" text="Empezar" />
-                        <Button mnemonicParsing="false" onAction="#OmitirQuestion" styleClass="boton-mean" text="Omitir" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#EmpezarJuego" styleClass="boton-mean" text="Empezar">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button mnemonicParsing="false" onAction="#OmitirQuestion" styleClass="boton-mean" text="Omitir">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </HBox>
                </children>

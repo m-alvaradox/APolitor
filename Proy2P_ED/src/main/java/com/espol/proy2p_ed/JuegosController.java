@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -46,6 +47,13 @@ public class JuegosController implements Initializable {
     ImageView imagen;
     @FXML
     Label descripcion;
+    @FXML
+    ImageView bttnhome;
+    
+    @FXML
+    ImageView bttnmute;
+    @FXML
+    ImageView bttnunmute;
     
     ArrayList<Juego> juegos;
     public static Juego JuegoEnUso;
@@ -53,11 +61,25 @@ public class JuegosController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       
+                
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
         t1.rotateLogo(imagenLogo);
         juegos = App.juegos;
         mostrarGames();
+        
+        Tooltip.install(bttnmute, new Tooltip("Silenciar"));
+        Tooltip.install(bttnunmute, new Tooltip("Activar audio"));
+        Tooltip.install(bttnhome, new Tooltip("Página Principal"));
+        
+                if(App.isMuted) {
+            bttnmute.setVisible(false);
+            bttnunmute.setVisible(true);
+        } else {
+            bttnmute.setVisible(true);
+            bttnunmute.setVisible(false);
+        }
     }    
     
     
@@ -69,6 +91,23 @@ public class JuegosController implements Initializable {
     @FXML
     private void makeGame() throws IOException{
         App.setRoot("newJuego");
+    }
+    
+    @FXML
+    private void audio() {
+        
+        if(App.isMuted) {
+            App.backgroundMusicPlayer.setMute(false);
+            App.isMuted = false;
+            bttnmute.setVisible(true);
+            bttnunmute.setVisible(false);
+        } else {
+            App.isMuted = true;
+            App.backgroundMusicPlayer.setMute(true);
+            bttnmute.setVisible(false);
+            bttnunmute.setVisible(true);
+        }
+       
     }
     
     

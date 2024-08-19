@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;  
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -66,6 +67,13 @@ public class GoJuegoController implements Initializable {
     Button botonCorregir;
     @FXML
     Button botonReiniciar;
+    
+    @FXML
+    ImageView bttnmute;
+    @FXML
+    ImageView bttnunmute;
+    @FXML
+    ImageView bttnregresar;
 
     
     @Override
@@ -81,6 +89,18 @@ public class GoJuegoController implements Initializable {
             ex.printStackTrace();
         }
         levelQuestions = ArbolJuego.getElements().size();
+        
+        Tooltip.install(bttnmute, new Tooltip("Silenciar"));
+        Tooltip.install(bttnunmute, new Tooltip("Activar audio"));
+        Tooltip.install(bttnregresar, new Tooltip("Regresar"));
+        
+                if(App.isMuted) {
+            bttnmute.setVisible(false);
+            bttnunmute.setVisible(true);
+        } else {
+            bttnmute.setVisible(true);
+            bttnunmute.setVisible(false);
+        }
         
     }    
     
@@ -132,6 +152,23 @@ public class GoJuegoController implements Initializable {
     @FXML
     private void Reiniciar() throws IOException{
         App.setRoot("goJuego");
+    }
+    
+    @FXML
+    private void audio() {
+        
+        if(App.isMuted) {
+            App.backgroundMusicPlayer.setMute(false);
+            App.isMuted = false;
+            bttnmute.setVisible(true);
+            bttnunmute.setVisible(false);
+        } else {
+            App.isMuted = true;
+            App.backgroundMusicPlayer.setMute(true);
+            bttnmute.setVisible(false);
+            bttnunmute.setVisible(true);
+        }
+       
     }
     
     @FXML

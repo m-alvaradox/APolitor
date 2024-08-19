@@ -24,7 +24,9 @@ public class App extends Application {
     private static Scene scene;
     public static String filegames = "src\\main\\resources\\datos\\games.ser";
     public static ArrayList<Juego> juegos = loadGames();
-    private MediaPlayer backgroundMusicPlayer;
+    public static MediaPlayer backgroundMusicPlayer;
+    
+    public static boolean isMuted = false;
     
     @Override
     public void start(Stage stage) throws IOException {
@@ -49,6 +51,8 @@ public class App extends Application {
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
+    
+    
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));

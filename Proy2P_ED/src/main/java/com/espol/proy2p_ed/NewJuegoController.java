@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -54,6 +55,12 @@ public class NewJuegoController implements Initializable {
     Circle c6;
     @FXML
     ImageView imagenLogo;
+    @FXML
+    ImageView bttnmute;
+    @FXML
+    ImageView bttnunmute;
+    @FXML
+    ImageView bttnregresar;
     
     final File[] questions = new File[1];
     final File[] answers = new File[1];
@@ -65,12 +72,41 @@ public class NewJuegoController implements Initializable {
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
         t1.rotateLogo(imagenLogo);
+        
+        Tooltip.install(bttnmute, new Tooltip("Silenciar"));
+        Tooltip.install(bttnunmute, new Tooltip("Activar audio"));
+        Tooltip.install(bttnregresar, new Tooltip("Regresar"));
+        
+                if(App.isMuted) {
+            bttnmute.setVisible(false);
+            bttnunmute.setVisible(true);
+        } else {
+            bttnmute.setVisible(true);
+            bttnunmute.setVisible(false);
+        }
     }    
     
     
     @FXML
     private void regresar() throws IOException {
         App.setRoot("juegos");
+    }
+    
+    @FXML
+    private void audio() {
+        
+        if(App.isMuted) {
+            App.backgroundMusicPlayer.setMute(false);
+            App.isMuted = false;
+            bttnmute.setVisible(true);
+            bttnunmute.setVisible(false);
+        } else {
+            App.isMuted = true;
+            App.backgroundMusicPlayer.setMute(true);
+            bttnmute.setVisible(false);
+            bttnunmute.setVisible(true);
+        }
+       
     }
     
     @FXML

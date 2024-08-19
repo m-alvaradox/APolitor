@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.NewJuegoController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.NewJuegoController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="640.0" styleClass="fondo">
          <children>
@@ -32,15 +33,24 @@
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </bottom>
          <top>
             <HBox alignment="CENTER" prefHeight="76.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="43.0" fitWidth="44.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" translateX="-150.0">
+                  <ImageView fx:id="bttnregresar" fitHeight="43.0" fitWidth="44.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" translateX="-150.0">
                      <image>
                         <Image url="@../../../imagenes/regresar.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
                   </ImageView>
                   <Label styleClass="label-mean" text="APOLITOR" />
                   <ImageView fx:id="imagenLogo" fitHeight="49.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
@@ -48,6 +58,29 @@
                         <Image url="@../../../imagenes/tortuga2.png" />
                      </image>
                   </ImageView>
+                  <AnchorPane prefHeight="76.0" prefWidth="79.0">
+                     <children>
+                        <ImageView fx:id="bttnmute" fitHeight="59.0" fitWidth="91.0" layoutX="71.0" layoutY="12.0" onMouseClicked="#audio" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../imagenes/mute.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="bttnunmute" fitHeight="59.0" fitWidth="91.0" layoutX="71.0" layoutY="12.0" onMouseClicked="#audio" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../../imagenes/unmute.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </AnchorPane>
                </children>
             </HBox>
          </top>
@@ -68,7 +101,10 @@
                   </TextArea>
                   <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="399.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#AddQuestion" styleClass="boton_new" text="Subir preguntas" />
+                        <Button mnemonicParsing="false" onAction="#AddQuestion" styleClass="boton_new" text="Subir preguntas">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <HBox fx:id="conteinerQuestion" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="131.0" styleClass="caja_imagen" visible="false">
                            <children>
                               <Label fx:id="titleQuestion" prefHeight="17.0" prefWidth="88.0" text="title">
@@ -87,7 +123,10 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="399.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#AddAnswer" styleClass="boton_new" text="Subir respuestas" />
+                        <Button mnemonicParsing="false" onAction="#AddAnswer" styleClass="boton_new" text="Subir respuestas">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <HBox fx:id="conteinerAnswer" alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="131.0" styleClass="caja_imagen" visible="false">
                            <children>
                               <Label fx:id="titleAnswer" prefHeight="17.0" prefWidth="88.0" text="title">
@@ -124,7 +163,10 @@
                         <ImageView fx:id="imagen" fitHeight="132.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#addImage" styleClass="boton_new" text="Subir Imagen" />
+                  <Button mnemonicParsing="false" onAction="#addImage" styleClass="boton_new" text="Subir Imagen">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
                <padding>
                   <Insets top="30.0" />
