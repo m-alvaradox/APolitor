@@ -1,3 +1,0 @@
-¿Es este número mayor que 10?
-¿Es este número par?
-¿Es este número un múltiplo de 5?
