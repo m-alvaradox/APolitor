@@ -1,0 +1,18 @@
+Ingeniero-Software sí sí sí sí no sí no sí no no no sí sí no no sí sí sí no sí
+Enfermero no sí sí sí no sí no sí sí sí no sí sí sí no no sí sí sí sí
+Profesor/a no sí sí no no sí sí sí no no no sí sí no sí sí sí sí sí no
+Chef no sí no no no sí sí sí sí sí no sí sí no sí sí sí no sí no
+Chef no sí no no no sí sí sí sí no no sí sí no no sí sí no no no
+Agricultor/a no sí no sí sí no no sí sí no no sí no no no sí sí no no no
+Arquitecto sí sí sí sí sí sí sí sí no no sí sí sí no no sí sí sí sí sí
+Juez sí sí sí no no sí sí sí no no no sí sí no no no sí sí sí no
+Dentista sí sí sí sí no sí sí sí sí no no sí sí sí sí no sí sí sí sí
+Piloto no sí sí no no sí sí sí sí sí sí sí sí no no no sí sí sí sí
+Plomero no sí no sí sí no sí sí sí no sí no sí no no no sí sí sí no
+Albañil no sí no sí sí no sí sí sí no no sí sí no no no no sí no no
+Fotógrafo no sí no sí sí no no sí sí sí sí no sí no no sí no sí no no
+Actor no no no no sí no no sí no sí sí sí sí no no sí no no no no
+Contador sí sí sí sí no sí sí sí no no no sí sí no no no sí sí sí sí
+Periodista no sí sí no sí sí no sí no sí sí sí sí no no sí no sí no no
+
+
