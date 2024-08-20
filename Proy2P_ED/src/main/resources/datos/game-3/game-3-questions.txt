@@ -1,20 +1,20 @@
-¿Es este animal un mamífero?
-¿Es este animal un carnívoro?
-¿Se para este animal sobre cuatro patas?
-¿Este animal es un ave?
-¿Vive este animal en el agua?
-¿Este animal es doméstico?
-¿Este animal puede volar?
-¿Este animal es de gran tamaño?
-¿Este animal es un depredador?
-¿Este animal vive en la selva?
-¿Este animal tiene cuernos?
-¿Este animal tiene aletas?
-¿Este animal es herbívoro?
-¿Este animal vive en manadas?
-¿Este animal tiene rayas o manchas en su piel?
-¿Este animal es peligroso para los humanos?
-¿Este animal tiene un pelaje denso?
-¿Este animal es nocturno?
-¿Este animal es conocido por su velocidad?
-¿Este animal es un insecto?
+¿Es estadounidense?
+¿Ha ganado un premio Óscar?
+¿Es conocido por papeles de acción?
+¿Es hombre?
+¿Ha protagonizado alguna película de Marvel?
+¿Es también director de cine?
+¿Ha interpretado a un superhéroe?
+¿Ha actuado en películas de comedia?
+¿Es mayor de 50 años?
+¿Ha actuado en más de 50 películas?
+¿Es conocido por trabajar con un director específico?
+¿Ha trabajado en una franquicia exitosa?
+¿Ha ganado algún premio Globo de Oro?
+¿Ha actuado en películas de ciencia ficción?
+¿Tiene ascendencia europea?
+¿Es también productor de cine?
+¿Ha participado en películas de terror?
+¿Es conocido por hacer sus propias acrobacias?
+¿Ha trabajado en teatro?
+¿Ha participado en alguna película ganadora del Óscar a Mejor Película?

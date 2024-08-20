@@ -1,20 +1,20 @@
-¿Trabajas en una oficina?
-¿Usas herramientas especializadas?
-¿Manejas datos o números?
-¿Interactúas con clientes?
-¿Trabajas al aire libre?
-¿Requiere formación académica?
-¿Supervisas a otros?
-¿Necesitas experiencia previa?
-¿Usas habilidades manuales?
-¿Trabajas en turnos nocturnos?
-¿Viajas frecuentemente?
-¿Trabajas en equipo?
-¿Es necesario comunicarte mucho?
-¿Trabajas en el sector salud?
-¿Enseñas o entrenas a otros?
-¿Diseñas o creas algo?
-¿Resuelves problemas complejos?
-¿Trabajas con tecnología?
-¿Necesitas licencia o certificación?
-¿Hay alta demanda para tu rol?
+¿La película fue lanzada después del año 2000?
+¿La película es de ciencia ficción o fantasía?
+¿La película es parte de una franquicia o tiene secuelas?
+¿El protagonista principal es un hombre?
+¿La película ganó un premio Óscar?
+¿La película es animada?
+¿La película está ambientada en el futuro?
+¿La película está basada en un libro o novela gráfica?
+¿La película es de terror o suspenso?
+¿La película tiene una duración mayor a dos horas?
+¿La película se desarrolla principalmente en un lugar real?
+¿El protagonista es un superhéroe?
+¿La película tiene un tono cómico o es una comedia?
+¿La película es un musical?
+¿La película trata sobre eventos históricos?
+¿La película incluye una historia de amor significativa?
+¿La película fue dirigida por un director muy reconocido?
+¿La película tiene un final feliz?
+¿La película es una adaptación de una obra teatral?
+¿La película involucra crimen o investigaciones policiales?
