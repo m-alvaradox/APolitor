@@ -64,29 +64,35 @@ public class DecisionTree<E> {
         }
     } 
     
-    public DecisionTree<E> findParent(NodeDecisionTree<E> nodo){
-       DecisionTree<E> parent=null;
-       Stack<DecisionTree<E>> copia = new Stack<>();
-       if(!this.isEmpty() &&  nodo != null){
-           copia.push(this);
-           while(!copia.isEmpty()){
-               DecisionTree<E> tree = copia.pop();
-               boolean yesBranch = tree.getRoot().getYesBranch()!=null;
-               boolean noBranch = tree.getRoot().getNoBranch()!=null;
-               if( yesBranch && tree.getRoot().getYesBranch().root.getContent().equals(nodo.getContent()) || noBranch && tree.getRoot().getNoBranch().root.getContent().equals(nodo.getContent())){
-                   parent = tree;
-                   return parent;
-               }
-               if(yesBranch){
-                   copia.push(tree.getRoot().getYesBranch());
-               }
-               if(noBranch){
-                   copia.push(tree.getRoot().getNoBranch());
-               }
-           }
-       }    
-       return parent; 
-    } 
+    public DecisionTree<E> findParent(NodeDecisionTree<E> nodo) {
+        if (this.isEmpty() || nodo == null) {
+            return null;
+        }
+
+        Stack<DecisionTree<E>> stack = new Stack<>();
+        stack.push(this);
+
+        while (!stack.isEmpty()) {
+            DecisionTree<E> currentTree = stack.pop();
+            NodeDecisionTree<E> currentNode = currentTree.getRoot();
+
+            if (currentNode.getYesBranch() != null && currentNode.getYesBranch().getRoot() == nodo) {
+                return currentTree;
+            }
+            if (currentNode.getNoBranch() != null && currentNode.getNoBranch().getRoot() == nodo) {
+                return currentTree;
+            }
+
+            if (currentNode.getYesBranch() != null) {
+                stack.push(currentNode.getYesBranch());
+            }
+            if (currentNode.getNoBranch() != null) {
+                stack.push(currentNode.getNoBranch());
+            }
+        }
+
+        return null; // Si no se encuentra el padre
+    }
     
     public ArrayList<DecisionTree> obtenerLeaves() {
         ArrayList<DecisionTree> hojas = new ArrayList<>();

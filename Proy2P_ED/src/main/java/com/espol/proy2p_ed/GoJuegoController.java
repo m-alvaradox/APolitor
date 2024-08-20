@@ -48,6 +48,7 @@ public class GoJuegoController implements Initializable {
     VBox conteinerButton;
     Juego JuegoAUsar;
     DecisionTree<String> ArbolJuego;
+    private DecisionTree<String> ArbolOriginal;
     int levelQuestions;
     int numQuestionsUsar;
     int contador=0; // contador que sirve para no acceder el limite de preguntas que eligió el jugador
@@ -84,7 +85,8 @@ public class GoJuegoController implements Initializable {
         t1.rotateLogo(imagenLogo);
         JuegoAUsar= JuegosController.JuegoEnUso;
         try {
-            ArbolJuego = App.buildDecisionTree(JuegoAUsar.getPreguntas(), JuegoAUsar.getAnswers());
+            ArbolOriginal = App.buildDecisionTree(JuegoAUsar.getPreguntas(), JuegoAUsar.getAnswers());
+            ArbolJuego = ArbolOriginal; // Inicializa ArbolJuego
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -207,12 +209,7 @@ public class GoJuegoController implements Initializable {
     
     @FXML
     private void questionAnterior(){
-        DecisionTree<String> ArbolOriginal = null;
-        try {
-            ArbolOriginal = App.buildDecisionTree(JuegoAUsar.getPreguntas(), JuegoAUsar.getAnswers());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        
         DecisionTree<String> padre = ArbolOriginal.findParent(ArbolJuego.getRoot());
         ArbolJuego = padre;
         contador-=2;
