@@ -5,6 +5,8 @@ import TDAs.DecisionTree;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -143,8 +145,7 @@ public class GoJuegoController implements Initializable {
         conteinerRespuesta.setVisible(true);
         conteinerPreguntas.setVisible(false);
         Respuesta.setText(ArbolJuego.getRoot().getContent());
-        File file = new File(ArbolJuego.getRoot().getRutaImagen());
-        imageRespuesta.setImage(new Image(getClass().getResourceAsStream(ArbolJuego.getRoot().getRutaImagen())));
+        imageRespuesta.setImage(new Image(ArbolJuego.getRoot().getRutaImagen()));
     }
     
     private void mostrarNoEncontrado(){
@@ -169,7 +170,7 @@ public class GoJuegoController implements Initializable {
         if(iterador.hasNext()){
             DecisionTree<String> hoja = iterador.next();
             Respuesta.setText(hoja.getRoot().getContent());
-            imageRespuesta.setImage(new Image(getClass().getResourceAsStream(hoja.getRoot().getRutaImagen())));
+            imageRespuesta.setImage(new Image(hoja.getRoot().getRutaImagen()));
         }
        
         

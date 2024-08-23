@@ -1,11 +1,11 @@
-com\espol\proy2p_ed\GoJuegoController.class
-TDAs\NodeDecisionTree.class
 com\espol\proy2p_ed\App.class
-com\espol\proy2p_ed\JuegosController.class
 com\espol\proy2p_ed\Container.class
-com\espol\proy2p_ed\Transition.class
-com\espol\proy2p_ed\NewJuegoController.class
 module-info.class
 TDAs\DecisionTree.class
+com\espol\proy2p_ed\GoJuegoController.class
+TDAs\NodeDecisionTree.class
+com\espol\proy2p_ed\JuegosController.class
+com\espol\proy2p_ed\Transition.class
+com\espol\proy2p_ed\NewJuegoController.class
 com\espol\proy2p_ed\Principal.class
 Objects\Juego.class
