@@ -1,0 +1,20 @@
+¿Es estadounidense?
+¿Ha ganado un premio Óscar?
+¿Es conocido por papeles de acción?
+¿Es hombre?
+¿Ha protagonizado alguna película de Marvel?
+¿Es también director de cine?
+¿Ha interpretado a un superhéroe?
+¿Ha actuado en películas de comedia?
+¿Es mayor de 50 años?
+¿Ha actuado en más de 50 películas?
+¿Es conocido por trabajar con un director específico?
+¿Ha trabajado en una franquicia exitosa?
+¿Ha ganado algún premio Globo de Oro?
+¿Ha actuado en películas de ciencia ficción?
+¿Tiene ascendencia europea?
+¿Es también productor de cine?
+¿Ha participado en películas de terror?
+¿Es conocido por hacer sus propias acrobacias?
+¿Ha trabajado en teatro?
+¿Ha participado en alguna película ganadora del Óscar a Mejor Película?
