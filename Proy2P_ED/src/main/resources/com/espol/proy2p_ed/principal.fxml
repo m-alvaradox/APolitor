@@ -8,12 +8,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.Principal">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../styles/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proy2p_ed.Principal">
    <children>
       <AnchorPane prefWidth="640.0" styleClass="fondo">
          <children>
@@ -61,7 +62,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="boton-mean" text="AYUDA">
+                  <Button mnemonicParsing="false" onAction="#info" styleClass="boton-mean" text="AYUDA">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -86,5 +87,33 @@
             </ImageView>
          </center>
       </BorderPane>
+      <AnchorPane fx:id="conteinerInfo" prefHeight="400.0" prefWidth="679.0" visible="false">
+         <children>
+            <VBox alignment="CENTER" layoutX="163.0" layoutY="66.0" prefHeight="268.0" prefWidth="315.0" style="-fx-background-color: white;" styleClass="recuadro_juego">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="157.0" prefWidth="313.0" spacing="20.0">
+                     <children>
+                        <Label fx:id="titleGame" prefHeight="169.0" prefWidth="303.0" styleClass="texto_principal" text="Bienvenido a Apolitor:           Nuestro programa se enfoca en adivinar alguna cosa, tenemos diferentes temáticas. Así que solo elige la de tu interés, piensa en algo y nosotros lo adivinaremos." wrapText="true" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="35.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="313.0" spacing="30.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#Ok" styleClass="boton-mean" text="OK">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>

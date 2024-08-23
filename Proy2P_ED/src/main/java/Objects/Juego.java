@@ -8,14 +8,16 @@ public class Juego implements Serializable {
     private String descripcion;
     private String preguntas;
     private String answers;
+    private String imagenes;
     private String portada;
 
-    public Juego(String titulo, String descripcion, String preguntas, String answers, String portada) {
+    public Juego(String titulo, String descripcion, String preguntas, String answers, String portada, String imagenes) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.preguntas = preguntas;
         this.answers = answers;
         this.portada = portada;
+        this.imagenes = imagenes;
     }
 
     public String getTitulo() {
@@ -56,6 +58,14 @@ public class Juego implements Serializable {
 
     public void setPortada(String portada) {
         this.portada = portada;
+    }
+
+    public String getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(String imagenes) {
+        this.imagenes = imagenes;
     }
     
     

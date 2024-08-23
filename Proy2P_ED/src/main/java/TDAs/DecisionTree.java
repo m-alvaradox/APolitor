@@ -1,6 +1,7 @@
 package TDAs;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -94,8 +95,8 @@ public class DecisionTree<E> {
         return null; // Si no se encuentra el padre
     }
     
-    public ArrayList<DecisionTree> obtenerLeaves() {
-        ArrayList<DecisionTree> hojas = new ArrayList<>();
+    public LinkedList<DecisionTree> obtenerLeaves() {
+        LinkedList<DecisionTree> hojas = new LinkedList<>();
 
         // Si el nodo actual es una hoja (no tiene hijos)
         if (this.isLeaf()) {

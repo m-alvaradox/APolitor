@@ -6,11 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import Objects.*;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -37,10 +39,13 @@ public class NewJuegoController implements Initializable {
     @FXML
     Label titleAnswer;
     @FXML
+    Label titleImagenes;
+    @FXML
     HBox conteinerQuestion; 
     @FXML
     HBox conteinerAnswer; 
-    
+    @FXML
+    HBox conteinerImagenes;
     @FXML
     Circle c1;
     @FXML
@@ -65,7 +70,7 @@ public class NewJuegoController implements Initializable {
     final File[] questions = new File[1];
     final File[] answers = new File[1];
     final File[] imgFile = new File[1];
-
+    final File[] imagenesFile = new File[1];
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -142,13 +147,37 @@ public class NewJuegoController implements Initializable {
     }
     
     @FXML
+    private void AddImagenes() throws IOException{
+        try {
+             imagenesFile[0] = buscarArchivo();
+                
+        if(answers != null) {
+             // namefileanswers.setText(answers[0].getAbsolutePath());
+             titleImagenes.setText(imagenesFile[0].getName());
+             conteinerImagenes.setVisible(true);
+            }
+        } catch (IOException ex) {
+                System.out.println("Busqueda cancelada");
+         }
+    }
+    
+    
+    @FXML
     private void CerrarQuestion() throws IOException{
         conteinerQuestion.setVisible(false);
+       questions[0] = null;
     }
     
     @FXML
     private void CerrarAnswer() throws IOException{
         conteinerAnswer.setVisible(false);
+        answers[0] = null;
+    }
+    
+    @FXML
+    private void CerrarImagenes() throws IOException{
+        conteinerImagenes.setVisible(false);
+        imagenesFile[0] = null;
     }
     
     @FXML
@@ -171,10 +200,11 @@ public class NewJuegoController implements Initializable {
         
         File questionscopy = questions[0];
         File answerscopy = answers[0];
-        File imagenportada = imgFile[0];     
+        File imagenportada = imgFile[0];  
+        File imagenesAnswer = imagenesFile[0];
         String rutaImagen;           
         if(titleGame.getText() != null && !titleGame.getText().trim().isEmpty()) {
-            if(validarArchivos(questionscopy, answerscopy) == true) {   
+            if(validarArchivos(questionscopy, answerscopy, imagenesAnswer) == true) {   
                 int numjuegos = 0;
                 if(App.juegos != null) {
                    numjuegos = App.juegos.size();
@@ -187,17 +217,22 @@ public class NewJuegoController implements Initializable {
                     System.out.println("Carpeta creada exitosamente");
                 } else {
                     System.out.println("No se pudo crear la carpeta");
-                }
+                }   
                 String ruta1 = rutaCarpeta+"/"+foldergame+"-questions.txt";
                 String ruta2 = rutaCarpeta+"/"+foldergame+"-answers.txt";
+                String ruta3 = rutaCarpeta+"/"+foldergame+"-imagenes.txt";
                 Path rutaDestino =  projectDir.resolve(Paths.get( ruta1));
                 Path rutaDestino2 =  projectDir.resolve(Paths.get( ruta2));
+                Path rutaDestino4 = projectDir.resolve(Paths.get(ruta3));
+                
                 try {
                     Files.copy(questionscopy.toPath(), rutaDestino, StandardCopyOption.REPLACE_EXISTING);
                     Files.copy(answerscopy.toPath(), rutaDestino2, StandardCopyOption.REPLACE_EXISTING);
                 } catch (IOException ex) {
                    ex.printStackTrace();
                 } 
+                
+                copyImagesFromFile(imagenesAnswer, rutaCarpeta, rutaDestino4.toFile());
                 
                 if(imagenportada == null) {
                     rutaImagen = App.class.getResource("/imagenes/defaultgame.jpg").toExternalForm();
@@ -215,7 +250,7 @@ public class NewJuegoController implements Initializable {
                 if(descripcionGame.getText() != null) {
                         descripcion1 = descripcionGame.getText();
                 }    
-                App.juegos.add(new Juego(titleGame.getText(), descripcion1, ruta1, ruta2, rutaImagen));
+                App.juegos.add(new Juego(titleGame.getText(), descripcion1, ruta1, ruta2, rutaImagen, ruta3));
                 App.serializarJuegos();
                 mostraralertaconfirmacion("Juego creado exitosamente");
                 App.setRoot("juegos");
@@ -278,20 +313,37 @@ public class NewJuegoController implements Initializable {
         alert.showAndWait();      
     }
 
-    private boolean validarArchivos(File questionscopy, File answerscopy) {
+    private boolean validarArchivos(File questionscopy, File answerscopy, File imagenesCopy) throws IOException {
         
         // Subio los dos archivos
-        if(questionscopy == null || answerscopy == null) {
+        if(questionscopy == null || answerscopy == null || imagenesCopy==null) {
             mostraralertaerror("Intente subir los dos archivos");
             return false;
         }
         
         // Archivo vacio
      
-        if((int) questionscopy.length() == 0 || (int) answerscopy.length() == 0) {
+        if((int) questionscopy.length() == 0 || (int) answerscopy.length() == 0 || (int) imagenesCopy.length()==0) {
             mostraralertaerror("Archivo vacio");
             return false;
         } 
+        
+        // Archivo de respuestas e imagenes 
+        
+        try {
+            // Contar el número de líneas en cada archivo
+            long answersCount = Files.lines( answerscopy.toPath()).count();
+            long imagesCount = Files.lines(imagenesCopy.toPath()).count();
+            System.out.println(answersCount);
+            System.out.println(imagesCount);
+            // Comparar los conteos
+            if (answersCount != imagesCount) {
+                mostraralertaerror("El total de líneas de tanto del archivo de respuestas como de imágenes deben ser iguales.");
+                return false;
+            } 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
         // Archivo preguntas
         
@@ -333,7 +385,70 @@ public class NewJuegoController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
+        
+        
+        // Archivo de Imagenes 
+        try (BufferedReader br = new BufferedReader(new FileReader(imagenesCopy))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Divide la línea según el delimitador
+                Path sourcePath = Paths.get(linea);
+
+                // Verificar si la imagen existe en la ruta especificada
+                if (!Files.exists(sourcePath)) {
+                    mostraralertaerror("La ruta de la imagen no existe: " + linea);
+                    return false;
+                }     
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
        return true; 
+    }
+    
+    
+   public static void copyImagesFromFile(File file, String destinationDirectory, File logFile) throws IOException {
+        // Asegurarse de que el directorio de destino exista
+        Path destinationDirPath = Paths.get(destinationDirectory);
+        if (!Files.exists(destinationDirPath)) {
+            Files.createDirectories(destinationDirPath);  // Crear el directorio si no existe
+        }
+
+        // Directorio base para las rutas relativas
+        Path baseDir = Paths.get("src", "main", "resources");
+
+        // Crear un archivo de registro para las rutas actuales de las imágenes
+        try (FileWriter logWriter = new FileWriter(logFile)) {
+            // Leer el archivo de texto línea por línea
+            try (Scanner scanner = new Scanner(file)) {
+                while (scanner.hasNextLine()) {
+                    String imagePath = scanner.nextLine().trim();
+                    Path sourcePath = Paths.get(imagePath);
+
+                    // Verificar si la imagen existe en la ruta especificada
+                    if (Files.exists(sourcePath)) {
+                        // Crear la ruta de destino para la imagen
+                        Path destinationPath = destinationDirPath.resolve(sourcePath.getFileName());
+
+                        // Copiar la imagen al directorio de destino
+                        Files.copy(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
+                        System.out.println("Imagen copiada: " + sourcePath.getFileName());
+
+                        // Construir la ruta relativa desde src/main/resources
+                        Path relativePath = baseDir.relativize(destinationPath);
+
+                        // Convertir la ruta a un string con barras normales
+                        String relativePathStr = relativePath.toString().replace("\\", "/");
+
+                        // Escribir la ruta relativa en el archivo de registro
+                        logWriter.write("/" + relativePathStr + System.lineSeparator());
+                    } else {
+                        // Lanza una excepción si la imagen no existe
+                        throw new IOException("La ruta de la imagen no existe: " + imagePath);
+                    }
+                }
+            }
+        }
     }
 }
