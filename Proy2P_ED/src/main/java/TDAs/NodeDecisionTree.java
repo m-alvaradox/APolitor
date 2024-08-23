@@ -2,6 +2,7 @@ package TDAs;
 
 public class NodeDecisionTree<E> {
     private E content;
+    private String rutaImagen;
     private DecisionTree<E> yesBranch;
     private DecisionTree<E> noBranch;
     
@@ -33,6 +34,14 @@ public class NodeDecisionTree<E> {
 
     public void setNoBranch(DecisionTree<E> noBranch) {
         this.noBranch = noBranch;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
     
     

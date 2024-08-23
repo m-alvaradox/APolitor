@@ -1,0 +1,15 @@
+/datos/game-0/ingeniero-software.jpg
+/datos/game-0/enfermero.jpg
+/datos/game-0/profesor.jpg
+/datos/game-0/chef.jpg
+/datos/game-0/agricultor.jpg
+/datos/game-0/arquitecto.jpg
+/datos/game-0/juez.jpg
+/datos/game-0/dentista.jpg
+/datos/game-0/piloto.jpg
+/datos/game-0/plomero.jpg
+/datos/game-0/albanil.jpg
+/datos/game-0/fotografo.jpg
+/datos/game-0/actor.jpg
+/datos/game-0/contador.jpg
+/datos/game-0/periodista.jpg

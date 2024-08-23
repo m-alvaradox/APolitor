@@ -104,7 +104,7 @@ public class App extends Application {
         launch();
     }
     
-    
+    /*
     public static DecisionTree<String> buildDecisionTree(String questionsFile, String answersFile) throws IOException {
         
         DecisionTree<String> decisionTree = new DecisionTree();
@@ -154,8 +154,76 @@ public class App extends Application {
                     
     }
             
-            
+    */        
+    public static DecisionTree<String> buildDecisionTree(String questionsFile, String answersFile, String imagenesFile) throws IOException {
+    
+    DecisionTree<String> decisionTree = new DecisionTree<>();
+    
+    List<String> questions = readFile(questionsFile);
+    List<String> answers = readFile(answersFile);
+    List<String> imagenes = readFile(imagenesFile);
+    
+    decisionTree.setElements(questions);
+    decisionTree.setRoot(new NodeDecisionTree<>(questions.get(0)));
+    
+    // Mapa para almacenar las imágenes por índice
+    java.util.Map<Integer, String> imageMap = new java.util.HashMap<>();
+    
+    // Llenar el mapa con las imágenes
+    for (int i = 0; i < imagenes.size(); i++) {
+        imageMap.put(i, imagenes.get(i));
+    }
+    
+    for (String answer : answers) {
+        String[] sep_answer = answer.split(" ");
+        String element = sep_answer[0];
         
+        NodeDecisionTree<String> current = decisionTree.getRoot();
+        
+        for (int i = 1; i < sep_answer.length; i++) {
+            if (sep_answer[i].equalsIgnoreCase("SI") || sep_answer[i].equalsIgnoreCase("SÍ")) {
+                if (current.getYesBranch() == null) {
+                    if (i == sep_answer.length - 1) {
+                        // Nodo hoja
+                        current.setYesBranch(new DecisionTree<>(new NodeDecisionTree<>(element)));
+                        // Asignar la imagen correspondiente al nodo hoja
+                        int imageIndex = answers.indexOf(answer);
+                        if (imageMap.containsKey(imageIndex)) {
+                            current.getYesBranch().getRoot().setRutaImagen(imageMap.get(imageIndex));
+                        } else {
+                            System.err.println("Índice de imagen fuera de rango para el nodo sí.");
+                        }
+                    } else {
+                        current.setYesBranch(new DecisionTree<>(new NodeDecisionTree<>(questions.get(i))));
+                    }
+                }
+                current = current.getYesBranch().getRoot();
+                
+            } else {
+                if (current.getNoBranch() == null) {
+                    if (i == sep_answer.length - 1) {
+                        // Nodo hoja
+                        current.setNoBranch(new DecisionTree<>(new NodeDecisionTree<>(element)));
+                        // Asignar la imagen correspondiente al nodo hoja
+                        int imageIndex = answers.indexOf(answer);
+                        if (imageMap.containsKey(imageIndex)) {
+                            current.getNoBranch().getRoot().setRutaImagen(imageMap.get(imageIndex));
+                        } else {
+                            System.err.println("Índice de imagen fuera de rango para el nodo no.");
+                        }
+                    } else {
+                        current.setNoBranch(new DecisionTree<>(new NodeDecisionTree<>(questions.get(i))));
+                    }
+                }
+                current = current.getNoBranch().getRoot();
+            }
+        }
+    }
+    
+    return decisionTree;
+}
+            
+    
         
     
 

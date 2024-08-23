@@ -2,9 +2,12 @@ package com.espol.proy2p_ed;
 
 import Objects.Juego;
 import TDAs.DecisionTree;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +20,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
@@ -59,7 +63,17 @@ public class GoJuegoController implements Initializable {
     @FXML
     Label Question;
     @FXML
-    ToggleGroup botonDecision;
+    Label Respuesta;
+    @FXML
+    ImageView imageRespuesta;
+    @FXML
+    ImageView atras;
+    @FXML
+    ImageView adelante;
+    @FXML
+    HBox conteinerRespuesta;
+    @FXML
+    HBox conteinerPreguntas;
     @FXML
     Button botonSi;
     @FXML
@@ -76,7 +90,7 @@ public class GoJuegoController implements Initializable {
     @FXML
     ImageView bttnregresar;
 
-    
+    ListIterator<DecisionTree> iterador;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -85,7 +99,7 @@ public class GoJuegoController implements Initializable {
         t1.rotateLogo(imagenLogo);
         JuegoAUsar= JuegosController.JuegoEnUso;
         try {
-            ArbolOriginal = App.buildDecisionTree(JuegoAUsar.getPreguntas(), JuegoAUsar.getAnswers());
+            ArbolOriginal = App.buildDecisionTree(JuegoAUsar.getPreguntas(), JuegoAUsar.getAnswers(), JuegoAUsar.getImagenes());
             ArbolJuego = ArbolOriginal; // Inicializa ArbolJuego
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -126,6 +140,11 @@ public class GoJuegoController implements Initializable {
         botonCorregir.setVisible(false);
         tortuga.setImage(new Image("/imagenes/tortuga_satisfecha.png"));
         Question.setText("Lo que pensó fue un "+ ArbolJuego.getRoot().getContent());
+        conteinerRespuesta.setVisible(true);
+        conteinerPreguntas.setVisible(false);
+        Respuesta.setText(ArbolJuego.getRoot().getContent());
+        File file = new File(ArbolJuego.getRoot().getRutaImagen());
+        imageRespuesta.setImage(new Image(getClass().getResourceAsStream(ArbolJuego.getRoot().getRutaImagen())));
     }
     
     private void mostrarNoEncontrado(){
@@ -141,14 +160,41 @@ public class GoJuegoController implements Initializable {
         botonReiniciar.setVisible(true);
         conteinerButton.getChildren().removeAll(botonNo, botonSi, botonCorregir);
         Question.setText("Con sus números de preguntas se obtuvo estas posibles respuestas");
-        ArrayList<DecisionTree> hojas = ArbolJuego.obtenerLeaves();
-        for(DecisionTree hoja:hojas){
-            Label lb = new Label();
-            lb.setText(hoja.getRoot().getContent().toString());
-            lb.getStyleClass().add("text-atributos");
-            conteinerButton.getChildren().add(lb);
+        LinkedList<DecisionTree> hojas = ArbolJuego.obtenerLeaves();
+        conteinerRespuesta.setVisible(true);
+        conteinerPreguntas.setVisible(false);
+        adelante.setVisible(true);
+        atras.setVisible(true);
+        iterador = hojas.listIterator();
+        if(iterador.hasNext()){
+            DecisionTree<String> hoja = iterador.next();
+            Respuesta.setText(hoja.getRoot().getContent());
+            imageRespuesta.setImage(new Image(getClass().getResourceAsStream(hoja.getRoot().getRutaImagen())));
         }
+       
         
+    }
+    
+    @FXML
+    private void siguiente() throws IOException{
+        if(iterador.hasNext()){
+            DecisionTree<String> hoja = iterador.next();
+            Respuesta.setText(hoja.getRoot().getContent());
+            imageRespuesta.setImage(new Image(hoja.getRoot().getRutaImagen()));
+        } else {
+            mostraralertaerror("Ya no hay más elementos");
+        }
+    }
+    
+    @FXML
+    private void atras() throws IOException{
+        if(iterador.hasPrevious()){
+            DecisionTree<String> hoja = iterador.previous();
+            Respuesta.setText(hoja.getRoot().getContent());
+            imageRespuesta.setImage(new Image(hoja.getRoot().getRutaImagen()));
+        } else {
+            mostraralertaerror("Ya no hay más elementos");
+        }
     }
     
     @FXML
@@ -233,14 +279,14 @@ public class GoJuegoController implements Initializable {
         if(numQuestions.getText()!=null && !numQuestions.getText().isEmpty()){
            int levels = Integer.parseInt(numQuestions.getText());
             if(levels > levelQuestions){
-                mostraralertaerror("Este numero excede el numero de preguntas");
+                mostraralertaerror("Digite un número menor a "+ ArbolJuego.getElements().size());
             } else {
                 numQuestionsUsar = levels;
                 containerDetalles.setVisible(false);
                 actualizarVentana();
             } 
         }else{
-            mostraralertaerror("Digite un numero");
+            mostraralertaerror("Digite un número entre 1 y "+ ArbolJuego.getElements().size());
         }
             
     }

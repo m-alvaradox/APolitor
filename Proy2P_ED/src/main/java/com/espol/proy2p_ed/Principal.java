@@ -11,6 +11,7 @@ import javafx.scene.control.Tooltip;
 import javafx.util.Duration;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 public class Principal implements Initializable{
@@ -35,6 +36,8 @@ public class Principal implements Initializable{
     ImageView bttnmute;
     @FXML
     ImageView bttnunmute;
+    @FXML
+    AnchorPane conteinerInfo;
     
     //private MediaPlayer backgroundMusicPlayer;
     
@@ -101,5 +104,15 @@ public class Principal implements Initializable{
     private void makeJuego() throws IOException{
         App.setRoot("newJuego");
     }
-        
+    
+
+    @FXML
+    private void info() throws IOException {
+        conteinerInfo.setVisible(true);
+    }
+    
+    @FXML
+    private void Ok() throws IOException {
+        conteinerInfo.setVisible(false);
+    }
 }
