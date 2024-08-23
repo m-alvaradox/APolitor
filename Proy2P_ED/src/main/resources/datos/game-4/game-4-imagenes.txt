@@ -18,3 +18,4 @@
 /datos/game-4/NataliePortman.jpg
 /datos/game-4/RobertDeNiro.jpg
 /datos/game-4/EmmaStone.jpg
+/imagenes/defaultimg.png

@@ -2,7 +2,9 @@ package com.espol.proy2p_ed;
 
 import Objects.Juego;
 import TDAs.DecisionTree;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -93,8 +96,12 @@ public class GoJuegoController implements Initializable {
     ImageView bttnregresar;
 
     ListIterator<DecisionTree> iterador;
+    
+    public static ArrayList<String> respuestas;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        respuestas = new ArrayList<>();
 
         Transition t1 = new Transition();
         t1.Transitionround(c1,c2,c3,c4,c5,c6);
@@ -148,13 +155,34 @@ public class GoJuegoController implements Initializable {
         imageRespuesta.setImage(new Image(ArbolJuego.getRoot().getRutaImagen()));
     }
     
-    private void mostrarNoEncontrado(){
+    private void mostrarNoEncontrado() throws IOException{
         botonReiniciar.setVisible(true);
         botonNo.setVisible(false);
         botonSi.setVisible(false);
         botonCorregir.setVisible(false);
         tortuga.setImage(new Image("/imagenes/tortugaTriste.png"));
         Question.setText("Que pena, no pude adivinar :( ");
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Su respuesta: ");
+        String res = sc.nextLine();
+        
+        FileWriter fw = new FileWriter(JuegoAUsar.getAnswers(),true);
+        BufferedWriter bf = new BufferedWriter(fw);
+        bf.newLine();
+        
+        String cadena = "";
+        for (String s : respuestas) {
+            cadena += " "+s;        
+        }
+        bf.write(res + cadena);
+        bf.close();
+        
+        FileWriter fw2 = new FileWriter(JuegoAUsar.getImagenes(),true);
+        BufferedWriter bf2 = new BufferedWriter(fw2);
+        bf2.newLine();
+        bf2.write("/imagenes/defaultimg.png");
+        bf2.close();
     }
     
     private void mostrarPosiblesResultados(){
@@ -222,6 +250,8 @@ public class GoJuegoController implements Initializable {
     
     @FXML
     private void botonSi() throws IOException {
+        
+        respuestas.add("si");
         if(contador==1){
             botonCorregir.setVisible(true);
         }
@@ -239,6 +269,7 @@ public class GoJuegoController implements Initializable {
 
     @FXML
     private void botonNo() throws IOException {
+        respuestas.add("no");
         if(contador==1){
             botonCorregir.setVisible(true);
         }
